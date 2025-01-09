@@ -1,6 +1,6 @@
 from collections import OrderedDict
 from decimal import Decimal
-import re
+import regex as re
 
 from .exceptions import JsonSchemaValueException, JsonSchemaDefinitionException
 from .indent import indent
@@ -108,7 +108,7 @@ class CodeGenerator:
                 '',
             ])
         return '\n'.join(self._extra_imports_lines + [
-            'import re',
+            'import regex as re',
             'from fastjsonschema import JsonSchemaValueException',
             '',
             '',

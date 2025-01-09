@@ -1,5 +1,5 @@
 import datetime
-import re
+import regex as re
 
 import pytest
 

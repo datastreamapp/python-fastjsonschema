@@ -8,7 +8,7 @@ Code adapted from https://github.com/Julian/jsonschema
 
 import contextlib
 import json
-import re
+import regex as re
 from urllib import parse as urlparse
 from urllib.parse import unquote
 

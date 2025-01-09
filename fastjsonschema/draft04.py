@@ -1,5 +1,5 @@
 import decimal
-import re
+import regex as re
 
 from .exceptions import JsonSchemaDefinitionException
 from .generator import CodeGenerator, enforce_list
@@ -271,7 +271,7 @@ class CodeGeneratorDraft04(CodeGenerator):
                 self._generate_format(format_, format_ + '_re_pattern', format_regex)
             # Format regex is used only in meta schemas.
             elif format_ == 'regex':
-                self._extra_imports_lines = ['import re'] 
+                self._extra_imports_lines = ['import regex as re'] 
                 with self.l('try:', optimize=False):
                     self.l('re.compile({variable})')
                 with self.l('except Exception:'):

@@ -1,4 +1,4 @@
-import re
+import regex as re
 
 
 SPLIT_RE = re.compile(r'[\.\[\]]+')
