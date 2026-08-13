@@ -207,3 +207,25 @@ def test_issue_114(asserter):
     value = {"a": []}
     expected = value
     asserter(schema, value, expected)
+
+
+def test_items_subschema_without_validation_code(asserter):
+    asserter({'items': {'not': False}}, [1, 2], [1, 2])
+
+
+def test_additional_items_subschema_without_validation_code(asserter):
+    asserter({
+        'items': [{'type': 'string'}],
+        'additionalItems': {'format': 'unknown-format'},
+    }, ['a', 1], ['a', 1])
+
+
+def test_min_items_with_min_length(asserter):
+    # regression test for issue #157: minLength defines data_len inside an
+    # `isinstance(data, str)` block, so minItems must not reuse it in its own
+    # block, where it is not bound.
+    asserter({'minItems': 1, 'minLength': 1}, ['str'], ['str'])
+
+
+def test_max_items_with_max_length(asserter):
+    asserter({'maxItems': 2, 'maxLength': 2}, ['a'], ['a'])

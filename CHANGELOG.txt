@@ -1,3 +1,20 @@
+=== 2.22.1 (2026-07-27)
+
+* Fixed min Python version
+
+=== 2.22.0 (2026-07-25)
+
+* Fixed IPv4 validation (rejecting leading zeros)
+* Fixed empty items and patternProperties
+* Fixed protection from deeply nested schemas potentially causing denial of service
+* Fixed comparing values for enum and const validations
+* Fixed resolving plain-name ref fragments
+* Fixed not throwing when unknown format is used
+* Fixed compilation of not, if/then/else, items, additionalItems, propertyNames and schema dependencies when a subschema generates no validation code
+* Added option to get all the errors (set `fast_fail` to `False`)
+* Added basic type hints
+* Added support of duration and uuid formats from draft-2019
+
 === 2.21.2 (2025-08-14)
 
 * Fixed regexp for IPv6 format
